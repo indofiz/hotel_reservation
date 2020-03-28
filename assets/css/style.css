@@ -1,0 +1,76 @@
+
+
+.table-data2 {
+	height: auto;
+	overflow-y: auto;
+	margin: 0 0 20px 0;
+}
+.wardot{
+	background: #f77f00;
+}
+.indot{
+	background: #4aada8;
+}
+.inactiveroom,.activeroom,.spann,.spann2,.warningroom {
+	padding: 20px;
+	margin: 5px;
+	text-align: center;
+	font-weight: 700;
+	color:#fff;
+	cursor: pointer;
+}
+.inactiveroom {
+	background: #4aada8;
+}
+.activeroom {
+	background: #cc333f;
+}
+.warningroom {
+	background: #f77f00;
+}
+.spann {
+	background: #dedede;
+}
+.inactiveroom:hover {
+	background: #288b86;
+}
+.spann2 {
+	background: #eee;
+	margin: 0;	
+}
+.text-inp {
+	background: #eee;
+}
+
+.flex-room {
+	display: flex !important;
+	flex-wrap: wrap;
+	justify-content: left;
+	margin: 0 auto;
+	padding-bottom: 150px
+}
+.flex-room div {
+	margin: 10px;
+}
+.list-room {
+	width: 10%;
+	padding: 3% 0;
+	text-align: center;
+	color: #fff
+}
+#guest-table {
+	background: #fff;
+}
+#guest-table thead{
+	background: #333;
+	color: #eee
+}
+
+#guest-table th{
+	border: none !important;
+}
+#guest-table th ,
+#guest-table td {
+	font-size: 14px;
+
+}
