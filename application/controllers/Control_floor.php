@@ -15,6 +15,7 @@ class Control_floor extends CI_Controller {
 	function index(){
 		$data['title'] = 'Control Floor';
 		$data['user'] = $this->user;
+		$data['lantai_list'] = $this->hotel->lantai_list();
 		$data['lantai'] = $this->hotel->lantai_array();
 		$this->load->view('inc/header',$data);
 		$this->load->view('floor_list',$data);
@@ -33,29 +34,69 @@ class Control_floor extends CI_Controller {
 	function addFloor()
 	{
 		// form rules
-		$this->form_validation->set_rules('lantai', 'Lantai', 'required');
-
-		if ($this->form_validation->run() == false) {
+		if ($this->input->post('switch-parent')) {
 			
-			$data['title'] = 'Control Floor';
-			$data['user'] = $this->user;
-			$data['lantai'] = $this->hotel->lantai_array();
-			$this->load->view('inc/header',$data);
-			$this->load->view('floor_list',$data);
-			$this->load->view('inc/foot');
+			$this->form_validation->set_rules('lantai', 'Lantai', 'required');
+			$this->form_validation->set_rules('lantai-parent', 'Parent', 'required');
 
-		} else {
+			if ($this->form_validation->run() == false) {
+				
+				$data['title'] = 'Control Floor';
+				$data['user'] = $this->user;
+				$data['lantai_list'] = $this->hotel->lantai_list();
+				$data['lantai'] = $this->hotel->lantai_array();
+				$this->load->view('inc/header',$data);
+				$this->load->view('floor_list',$data);
+				$this->load->view('inc/foot');
 
-			$data = [
-				'lantai_label' => $this->input->post('lantai', true)
-			];
+			} else {
 
-			$this->db->insert('lantai', $data);
-			$this->session->set_flashdata('message', 
-				'<div class="alert alert-success" role="alert">Data lantai berhasil ditambahkan</div>'
-			);
-			redirect('/control_floor/');
+				$data = [
+					'lantai_label' => $this->input->post('lantai', true),
+					'parent_id' => $this->input->post('lantai-parent', true)
+				];
+
+				$this->db->insert('lantai', $data);
+
+				$data2 = [
+					'parent_id' => $this->input->post('lantai-parent', true),
+					'sub' => 1
+				];
+				$this->db->where('id', $this->input->post('lantai-parent',true));
+				$this->db->update('lantai',$data2);
+				$this->session->set_flashdata('message', 
+					'<div class="alert alert-success" role="alert">Data lantai berhasil ditambahkan</div>'
+				);
+				redirect('/control_floor/');
+			}
+		}else{
+			$this->form_validation->set_rules('lantai', 'Lantai', 'required');
+
+			if ($this->form_validation->run() == false) {
+				
+				$data['title'] = 'Control Floor';
+				$data['user'] = $this->user;
+				$data['lantai'] = $this->hotel->lantai_array();
+				$data['lantai_list'] = $this->hotel->lantai_list();
+				$this->load->view('inc/header',$data);
+				$this->load->view('floor_list',$data);
+				$this->load->view('inc/foot');
+
+			} else {
+
+				$data = [
+					'lantai_label' => $this->input->post('lantai', true)
+				];
+
+				$this->db->insert('lantai', $data);
+				$this->session->set_flashdata('message', 
+					'<div class="alert alert-success" role="alert">Data lantai berhasil ditambahkan</div>'
+				);
+				redirect('/control_floor/');
+			}
 		}
+
+		
 	}
 
 	function editFloor(){

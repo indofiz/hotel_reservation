@@ -14,7 +14,7 @@
 </section>
 
 <div class="section__content section__content--p30 m-t-30">
-    <div class="container">
+    <div class="container-fluid">
 		<div class="card">
             <div class="card-body">	
             <?= $this->session->flashdata('message'); ?>
@@ -23,12 +23,42 @@
                 <form action="<?= base_url('/control_floor/addFloor'); ?>" method="post">
                   <div class="form-group">
                       <div class="row">
-                          <div class="col col-sm-9">
+                          <div class="col col-sm-8">
                             <label for="lantai" class="form-control-label">Lantai</label>
                             <input name="lantai" type="text" class="form-control" />
                           </div>
+                          <div class="col col-sm-4">
+                        
                             <button type="submit" class="btn btn-primary btn-md m-t-35">Tambah</button>
                           </div>
+                            <div class="col-md-8 m-t-30">
+                                <label class="switch switch-default switch-primary mr-2">
+                                <input type="checkbox" class="switch-input" id="switch-parent" name="switch-parent" value="parent">
+                                <span class="switch-label"></span>
+                                <span class="switch-handle"></span>
+                                </label>
+                                </label>
+                                <- Aktifkan jika lantai ingin dijadikan sub.
+                            </div>
+                            <div class="col-md-4 m-t-30" id="parent">
+                                <div class="rs-select2--dark rs-select2--md">
+
+                                <select class="js-select2" name="lantai-parent" id="lantai-parent">
+                                    <option value="">Pilih Parent</option>
+                                    <?php
+                                    foreach($lantai_list as $lntt)
+                                    {
+                                     echo '<option value="'.$lntt->id.'" ';
+                                     echo set_value('lantai-parent') == $lntt->id ? "selected" : null;
+                                     echo '>';
+                                     echo $lntt->lantai_label.'</option>';
+                                    }
+                                    ?>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                                </div>
+                            </div>
+
                       </div>
                   </div>
                 </form>

@@ -145,6 +145,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <a href="<?php echo base_url('control_floor') ?>">
                                                 <i class="fas fa-building"></i>Control Floor</a>
                                         </div>
+                                        <div class="account-dropdown__item">
+                                            <a href="<?php echo base_url(); ?>guest_category">
+                                                <i class="fas fa-user-circle"></i>Kategori Pengunjung</a>
+                                        </div>
                                         
                                     </div>
                                     

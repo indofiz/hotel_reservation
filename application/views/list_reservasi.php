@@ -49,7 +49,7 @@
 					  <td><?= $gs['ruangan']; ?></td>
 				      <td><?= $gs['total_people']; ?> orang</td>
 				      <td><?= $status; ?></td>
-				      <td><?= $gs['cost']; ?></td>
+				      <td>Rp.<?= number_format($gs['cost']); ?></td>
 				      <td>
 						<?php if ($gs['status'] == 1) {
 						?>

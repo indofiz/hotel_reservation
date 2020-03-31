@@ -88,6 +88,7 @@ class List_reservasi extends CI_Controller {
 		$ruang_tes = $this->db->get_where('room', ['number' => $data['guest']['ruangan']])->row_array()['status'];
 		$data['user'] = $this->user;
 		$checkout_2 = $this->db->get_where('guest', ['id' => $id])->row()->check_out;
+		$data['lantai_list'] = $this->hotel->lantai_list();
 		
 		
 
@@ -252,7 +253,7 @@ class List_reservasi extends CI_Controller {
 					$this->db->update('room');
 				}
 			}
-			redirect('/list_reservasi/');
+			redirect('/list_reservasi/alreadyCheckout');
 		}
 
 	}

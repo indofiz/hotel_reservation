@@ -80,7 +80,7 @@ class Room_list extends CI_Controller {
 			redirect('/room_list/');
 		}
 		// form rules
-		$this->form_validation->set_rules('add_room', 'Nomor Ruangan', 'required|numeric');
+		$this->form_validation->set_rules('add_room', 'Nomor Ruangan', 'required');
 		$this->form_validation->set_rules('max_people', 'Max Orang', 'required|numeric');
 		$this->form_validation->set_message('required','%s tidak boleh kosong.');
 		$this->form_validation->set_message('numeric','%s harus angka.');

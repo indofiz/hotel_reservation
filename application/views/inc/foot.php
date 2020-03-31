@@ -94,6 +94,18 @@
             // table admin
             $('#admin-table').DataTable();
             $('#room-table').DataTable();
+            $('#parent').hide();
+
+
+            $('#switch-parent').on('click',function(){
+                if ($('#switch-parent').is(":checked"))
+                {
+                    $('#parent').show('slow'); 
+                }else{
+                    $('#parent').hide('slow');
+                }
+            });
+
 
             // detail admin
             $('.detailAdmin').on('click', function(){
@@ -286,6 +298,15 @@
             var lantai = $(this).data('lantai');
             $('#lantai-n').val(lantai);
             $('#lantai-id').val(id);
+       });
+
+       $(document).on('click','#edit-category',function(){
+            var id = $(this).data('id');
+            var category = $(this).data('category');
+            var harga = $(this).data('harga');
+            $('#category-n').val(category);
+            $('#category-m').val(harga);
+            $('#category-id').val(id);
        });
 
     });

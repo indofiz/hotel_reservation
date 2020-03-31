@@ -31,19 +31,16 @@
                                 <label for="telpon" class=" form-control-label">Lantai</label>
 
                                 <select class="js-select2" name="lantai" id="lantai">
-                                    <?php if ($lantai == 1) : ?>
-                                        <option value="1" selected="">Lantai 2</option>
-                                        <option value="2">Lantai 3</option>
-                                        <option value="3">Perumahan</option>
-                                    <?php elseif($lantai == 2) : ?>
-                                        <option value="1">Lantai 2</option>
-                                        <option value="2" selected="">Lantai 3</option>
-                                        <option value="3">Perumahan</option>
-                                    <?php else : ?>
-                                        <option value="1">Lantai 2</option>
-                                        <option value="2">Lantai 3</option>
-                                        <option value="3" selected="">Perumahan</option>
-                                    <?php endif; ?>
+                                    <option value="">---</option>
+                                    <?php
+                                    foreach($lantai_list as $lantai)
+                                    {
+                                     echo '<option value="'.$lantai->id.'" ';
+                                     echo set_value('lantai') == $lantai->id ? "selected" : null;
+                                     echo '>';
+                                     echo $lantai->lantai_label.'</option>';
+                                    }
+                                    ?>
                                 </select>
                                 <div class="dropDownSelect2"></div>
                             </div>

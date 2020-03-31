@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2020 at 12:11 AM
+-- Generation Time: Apr 01, 2020 at 01:39 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -85,12 +85,9 @@ INSERT INTO `guest` (`id`, `name`, `telpon`, `type`, `deskripsi`, `check_in`, `c
 (68, 'Ruby', '12312312312321', '2', '', '30-Mar-2020', '220000', '31-Mar-2020', 1, '202', 1, 1),
 (69, 'Roger', '123213213213', '1', '', '28-Mar-2020', '0', '30-Mar-2020', 1, '202', 2, 1),
 (70, 'Badang', '12321312321', '1', '', '29-Mar-2020', '0', '31-Mar-2020', 1, '203', 3, 1),
-(71, 'Belerick', '123123213', '1', '', '28-Mar-2020', '', '', 1, '203', 1, 1),
-(72, 'Kucai', '124124124', '1', '', '28-Mar-2020', 'NaN', '31-Mar-2020', 2, '204', 3, 1),
-(73, 'Ling', '123123123', '1', '', '30-Mar-2020', '', '', 1, '206', 1, 1),
 (74, 'Kaja', '213123123123', '1', '', '30-Mar-2020', '0', '', 1, '206', 1, 1),
-(75, 'Ruby Stefani', '123214124124', '1', '', '30-Mar-2020', '', '', 1, '205', 1, 1),
-(77, 'Maldiv', '1243123213', '2', '', '30-Mar-2020', '220000', '31-Mar-2020', 1, '304', 1, 1);
+(77, 'Maldiv', '1243123213', '2', '', '30-Mar-2020', '220000', '31-Mar-2020', 1, '304', 1, 1),
+(78, 'Arjuna', '123213123', '1', '', '30-Mar-2020', '0', '31-Mar-2020', 2, '218', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -194,10 +191,10 @@ CREATE TABLE `room` (
 INSERT INTO `room` (`id`, `number`, `status`, `lantai`, `max_people`) VALUES
 (1, '201', 2, 1, 2),
 (2, '202', 2, 1, 2),
-(3, '203', 2, 1, 2),
-(4, '204', 2, 1, 2),
-(5, '205', 1, 1, 2),
-(6, '206', 2, 1, 2),
+(3, '203', 1, 1, 2),
+(4, '204', 0, 1, 2),
+(5, '205', 0, 1, 2),
+(6, '206', 1, 1, 2),
 (7, '207', 0, 1, 2),
 (8, '208', 0, 1, 2),
 (9, '209', 0, 1, 2),
@@ -209,7 +206,7 @@ INSERT INTO `room` (`id`, `number`, `status`, `lantai`, `max_people`) VALUES
 (15, '215', 0, 1, 2),
 (16, '216', 0, 1, 2),
 (17, '217', 0, 1, 2),
-(18, '218', 0, 1, 2),
+(18, '218', 2, 1, 2),
 (19, '219', 0, 1, 2),
 (20, '220', 0, 1, 2),
 (21, '221', 0, 1, 2),
@@ -377,19 +374,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `guest_category`
 --
 ALTER TABLE `guest_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lantai`
 --
 ALTER TABLE `lantai`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `room`

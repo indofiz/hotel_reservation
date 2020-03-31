@@ -123,7 +123,7 @@ class Pesan_ruangan extends CI_Controller {
 			
 			if ($status == $room_max || $status+$this->input->post('orang') > $room_max) {
 			$this->session->set_flashdata('message', 
-				'<div class="alert alert-danger" role="alert">Maksimal kapasitar Orang!!!</div>'
+				'<div class="alert alert-danger" role="alert">Maksimal kapasitas Orang!!!</div>'
 			);
 			redirect('/pesan_ruangan/');
 			}
